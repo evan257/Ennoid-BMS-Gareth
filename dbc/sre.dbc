@@ -1,0 +1,105 @@
+VERSION ""
+
+NS_ :
+	BA_
+	BA_DEF_
+	BA_DEF_DEF_
+	BA_DEF_DEF_REL_
+	BA_DEF_REL_
+	BA_DEF_SGTYPE_
+	BA_REL_
+	BA_SGTYPE_
+	BO_TX_BU_
+	BU_BO_REL_
+	BU_EV_REL_
+	BU_SG_REL_
+	CAT_
+	CAT_DEF_
+	CM_
+	ENVVAR_DATA_
+	EV_DATA_
+	FILTER
+	NS_DESC_
+	SGTYPE_
+	SGTYPE_VAL_
+	SG_MUL_VAL_
+	SIGTYPE_VALTYPE_
+	SIG_GROUP_
+	SIG_TYPE_REF_
+	SIG_VALTYPE_
+	VAL_
+	VAL_TABLE_
+
+BS_:
+
+BU_: DEBUG VCU BMS MCM MOTEC
+
+BO_ 1568 BMS_Status: 1 BMS
+ SG_ BMS_Cell_Over_Voltage : 0|1@1+ (1,0) [0|0] "" VCU
+ SG_ BMS_Cell_Under_Voltage : 1|1@1+ (1,0) [0|0] "" VCU
+ SG_ BMS_Cell_Over_Temperature : 2|1@1+ (1,0) [0|0] "" VCU
+ SG_ BMS_Board_Over_Temperature : 3|1@1+ (1,0) [0|0] "" VCU
+ SG_ BMS_Power_Exceed_80kW : 4|1@1+ (1,0) [0|0] "" VCU
+
+BO_ 1571 BMS_Pack_Info: 8 BMS
+ SG_ BMS_Pack_Voltage : 0|32@1- (0.1,0) [0|300.0] "V" VCU
+ SG_ BMS_Pack_Current : 32|32@1- (0.1,0) [-3000.0|3000.0] "A" VCU
+
+BO_ 1572 BMS_Load_Info: 8 BMS
+ SG_ BMS_Load_Voltage : 0|32@1- (0.1,0) [0|300.0] "V" VCU
+ SG_ BMS_Load_Current : 32|32@1- (0.1,0) [-3000.0|3000.0] "A" VCU
+
+BO_ 1573 BMS_Cell_Voltage_High_Low: 8 BMS
+ SG_ BMS_Cell_Voltage_High : 0|32@1- (0.01,0) [0|6.55] "V" VCU
+ SG_ BMS_Cell_Voltage_Low : 32|32@1- (0.01,0) [0|6.55] "V" VCU
+
+BO_ 1574 BMS_Cell_Voltage_Average: 8 BMS
+ SG_ BMS_Cell_Voltage_Average : 0|32@1- (0.01,0) [0|6.55] "V" VCU
+ SG_ BMS_Cell_Voltage_Mismatch : 32|32@1- (0.01,0) [0|6.55] "V" VCU
+
+ BO_ 1575 BMS_Status_Soc: 8 BMS
+ SG_ BMS_SOC : 0|32@1- (0.1,0) [0|100] "%" VCU
+ SG_ BMS_Capacity : 32|32@1- (0.1,0) [0|30] "Ah" VCU
+
+BO_ 1576 BMS_Temperature_Average: 8 BMS
+ SG_ BMS_Cell_Temperature_Average : 0|32@1- (0.1,0) [-100.0|100.0] "DegreeC" VCU
+ SG_ BMS_Board_Temperature_Average : 32|32@1- (0.1,0) [-100.0|100.0] "DegreeC" VCU
+
+BO_ 1577 BMS_Cell_Temperature: 8 BMS
+ SG_ BMS_Cell_Temperature_High : 0|32@1- (0.1,0) [-99.9|99.9] "DegreeC" VCU
+ SG_ BMS_Cell_Temperature_Low : 32|32@1- (0.1,0) [-99.9|99.9] "DegreeC" VCU
+
+BO_ 1584 BMS_Board_Temperature: 8 BMS
+ SG_ BMS_Board_Temperature_High : 0|32@1- (0.1,0) [-100.0|100.0] "DegreeC" VCU
+ SG_ BMS_Board_Temperature_Low : 32|32@1- (0.1,0) [-100.0|100.0] "DegreeC" VCU
+
+BO_ 1585 BMS_Load_Power: 4 BMS
+ SG_ BMS_Load_Power : 0|32@1- (0.1,0) [-79999.9|79999.9] "W" VCU
+
+
+CM_ BU_ VCU "The vehicle control unit";
+CM_ BU_ MCM "The motor controller of the car";
+CM_ BU_ BMS "The battery management system";
+CM_ BU_ BMS "The Motec DAQ";
+CM_ BO_ 1568 "BMS Status and Fault Message";
+CM_ BO_ 1571 "Accumulator Pack Voltage and Current"; 
+CM_ BO_ 1572 "Accumulator Load Voltage and Current"; 
+CM_ BO_ 1573 "Cell Voltage High and Low"; 
+CM_ BO_ 1574 "Cell Voltage Average and Mismatch"; 
+CM_ BO_ 1575 "SOC Percentage and Battery Capacity"; 
+CM_ BO_ 1576 "Cell and BMS Board Temperature Average"; 
+CM_ BO_ 1577 "Cell Temperature High and Low"; 
+CM_ BO_ 1584 "Accumulator Load Power"; 
+
+
+BA_DEF_ "BusType" STRING ;
+BA_DEF_ BO_ "GenMsgCycleTime" INT 0 0;
+BA_DEF_ SG_ "FieldType" STRING ;
+
+BA_DEF_DEF_ "BusType" "CAN";
+BA_DEF_DEF_ "FieldType" "";
+BA_DEF_DEF_ "GenMsgCycleTime" 0;
+
+BA_ "FieldType" SG_ 100 DRIVER_HEARTBEAT_cmd "DRIVER_HEARTBEAT_cmd";
+
+VAL_ 100 DRIVER_HEARTBEAT_cmd 2 "DRIVER_HEARTBEAT_cmd_REBOOT" 1 "DRIVER_HEARTBEAT_cmd_SYNC" 0 "DRIVER_HEARTBEAT_cmd_NOOP" ;

@@ -1,0 +1,165 @@
+//******************************BUSMASTER Messages and signals Database ******************************//
+
+[DATABASE_VERSION] 1.3
+
+[PROTOCOL] CAN
+
+[BUSMASTER_VERSION] [3.2.2]
+[NUMBER_OF_MESSAGES] 10
+
+[START_MSG] BMS_Status,1568,1,5,1,S,BMS
+[START_SIGNALS] BMS_Cell_Over_Voltage,1,1,0,B,1,0,1,0,1,,,VCU
+[START_SIGNALS] BMS_Cell_Under_Voltage,1,1,1,B,1,0,1,0,1,,,VCU
+[START_SIGNALS] BMS_Cell_Over_Temperature,1,1,2,B,1,0,1,0,1,,,VCU
+[START_SIGNALS] BMS_Board_Over_Temperature,1,1,3,B,1,0,1,0,1,,,VCU
+[START_SIGNALS] BMS_Power_Exceed_80kW,1,1,4,B,1,0,1,0,1,,,VCU
+[END_MSG]
+
+[START_MSG] BMS_Pack_Info,1571,8,2,1,S,BMS
+[START_SIGNALS] BMS_Pack_Voltage,32,1,0,I,30000,0,1,0,0.01,V,,VCU
+[START_SIGNALS] BMS_Pack_Current,32,5,0,I,600000,0,1,-3000,0.01,A,,VCU
+[END_MSG]
+
+[START_MSG] BMS_Load_Info,1572,8,2,1,S,BMS
+[START_SIGNALS] BMS_Load_Voltage,32,1,0,I,30000,0,1,0,0.01,V,,VCU
+[START_SIGNALS] BMS_Load_Current,32,5,0,I,600000,0,1,-3000,0.01,A,,VCU
+[END_MSG]
+
+[START_MSG] BMS_Cell_Voltage_High_Low,1573,8,2,1,S,BMS
+[START_SIGNALS] BMS_Cell_Voltage_High,32,1,0,I,655,0,1,0,0.01,V,,VCU
+[START_SIGNALS] BMS_Cell_Voltage_Low,32,5,0,I,655,0,1,0,0.01,V,,VCU
+[END_MSG]
+
+[START_MSG] BMS_Cell_Voltage_Average,1574,8,2,1,S,BMS
+[START_SIGNALS] BMS_Cell_Voltage_Average,32,1,0,I,655,0,1,0,0.01,V,,VCU
+[START_SIGNALS] BMS_Cell_Voltage_Mismatch,32,5,0,I,655,0,1,0,0.01,V,,VCU
+[END_MSG]
+
+[START_MSG] BMS_Status_Soc,1575,8,2,1,S,BMS
+[START_SIGNALS] BMS_SOC,32,1,0,I,1000,0,1,0,0.1,%,,VCU
+[START_SIGNALS] BMS_Capacity,32,5,0,I,300,0,1,0,0.1,Ah,,VCU
+[END_MSG]
+
+[START_MSG] BMS_Temperature_Average,1576,8,2,1,S,BMS
+[START_SIGNALS] BMS_Cell_Temperature_Average,32,1,0,I,2000,0,1,-100,0.1,DegreeC,,VCU
+[START_SIGNALS] BMS_Board_Temperature_Average,32,5,0,I,2000,0,1,-100,0.1,DegresC,,VCU
+[END_MSG]
+
+[START_MSG] BMS_Cell_Temperature,1577,8,2,1,S,BMS
+[START_SIGNALS] BMS_Cell_Temperature_High,32,1,0,I,2000,0,1,-100,0.1,DegreeC,,VCU
+[START_SIGNALS] BMS_Cell_Temperature_Low,32,5,0,I,0,-2000,1,100,0.1,DegreeC,,VCU
+[END_MSG]
+
+[START_MSG] BMS_Board_Temperature,1584,8,2,1,S,BMS
+[START_SIGNALS] BMS_Board_Temperature_High,32,1,0,I,2000,0,1,-100,0.1,DegreeC,,VCU
+[START_SIGNALS] BMS_Board_Temperature_Low,32,5,0,I,2000,0,1,-100,0.1,DegreeC,,VCU
+[END_MSG]
+
+[START_MSG] BMS_Load_Power,1585,4,1,1,S,BMS
+[START_SIGNALS] BMS_Load_Power,32,1,0,I,2000000,0,1,-100000,0.1,W,,VCU
+[END_MSG]
+
+[START_VALUE_TABLE]
+[END_VALUE_TABLE]
+
+[NODE] DBG,VCU,BMS,MCM
+
+[START_DESC]
+[START_DESC_NET]
+[END_DESC_NET]
+
+[START_DESC_NODE]
+VCU "The vehicle control unit";
+MCM "The motor controller of the car";
+BMS "The battery management system";
+[END_DESC_NODE]
+
+[START_DESC_MSG]
+1568 S "BMS Status and Fault Message";
+1571 S "Accumulator Pack Voltage and Current"; 
+1572 S "Accumulator Load Voltage and Current"; 
+1573 S "Cell Voltage High and Low"; 
+1574 S "Cell Voltage Average and Mismatch"; 
+1575 S "SOC Percentage and Battery Capacity"; 
+1576 S "Cell and BMS Board Temperature Average"; 
+1577 S "Cell Temperature High and Low"; 
+1584 S "Accumulator Load Power"; 
+[END_DESC_MSG]
+
+[START_DESC_SIG]
+[END_DESC_SIG]
+[END_DESC]
+
+[START_PARAM]
+[START_PARAM_NET]
+[END_PARAM_NET]
+
+[START_PARAM_NODE]
+[END_PARAM_NODE]
+
+[START_PARAM_MSG]
+"GenMsgCycleTime",INT,0,0,0
+[END_PARAM_MSG]
+
+[START_PARAM_SIG]
+"FieldType",STRING,
+[END_PARAM_SIG]
+
+[START_PARAM_NODE_RX_SIG]
+[END_PARAM_NODE_RX_SIG]
+
+[START_PARAM_NODE_TX_MSG]
+[END_PARAM_NODE_TX_MSG]
+[END_PARAM]
+
+[START_PARAM_VAL]
+[START_PARAM_NET_VAL]
+[END_PARAM_NET_VAL]
+
+[START_PARAM_NODE_VAL]
+[END_PARAM_NODE_VAL]
+
+[START_PARAM_MSG_VAL]
+[END_PARAM_MSG_VAL]
+
+[START_PARAM_SIG_VAL]
+100,S,DRIVER_HEARTBEAT_cmd,"FieldType","DRIVER_HEARTBEAT_cmd"
+[END_PARAM_SIG_VAL]
+
+[END_PARAM_VAL]
+
+
+[START_NOT_SUPPORTED]
+[END_NOT_SUPPORTED]
+
+[START_NOT_PROCESSED]
+	ON_
+	ON_QRS_
+	ON_QRS_QRS_
+	ON_QRS_QRS_ERY_
+	ON_QRS_ERY_
+	ON_QRS_FTGLCR_
+	ON_ERY_
+	ON_FTGLCR_
+	OB_GK_OH_
+	OH_OB_ERY_
+	OH_RI_ERY_
+	OH_FT_ERY_
+	PNG_
+	PNG_QRS_
+	PZ_
+	RAIINE_QNGN_
+	RI_QNGN_
+	SVYGRE
+	FTGLCR_
+	FTGLCR_INY_
+	FT_ZHY_INY_
+	FVTGLCR_INYGLCR_
+	FVT_TEBHC_
+	FVT_GLCR_ERS_
+	FVT_INYGLCR_
+	INY_
+	INY_GNOYR_
+OF_:
+
+[END_NOT_PROCESSED]
