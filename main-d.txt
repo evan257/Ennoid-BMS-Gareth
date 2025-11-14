@@ -4479,143 +4479,141 @@ Disassembly of section .text:
 080048b8 <modConfigLoadDefaultConfig>:
  80048b8:	f240 436e 	movw	r3, #1134	; 0x46e
  80048bc:	8003      	strh	r3, [r0, #0]
- 80048be:	4b64      	ldr	r3, [pc, #400]	; (8004a50 <modConfigLoadDefaultConfig+0x198>)
+ 80048be:	4b65      	ldr	r3, [pc, #404]	; (8004a54 <modConfigLoadDefaultConfig+0x19c>)
  80048c0:	6043      	str	r3, [r0, #4]
- 80048c2:	4b64      	ldr	r3, [pc, #400]	; (8004a54 <modConfigLoadDefaultConfig+0x19c>)
+ 80048c2:	4b65      	ldr	r3, [pc, #404]	; (8004a58 <modConfigLoadDefaultConfig+0x1a0>)
  80048c4:	6083      	str	r3, [r0, #8]
- 80048c6:	4b64      	ldr	r3, [pc, #400]	; (8004a58 <modConfigLoadDefaultConfig+0x1a0>)
+ 80048c6:	4b65      	ldr	r3, [pc, #404]	; (8004a5c <modConfigLoadDefaultConfig+0x1a4>)
  80048c8:	60c3      	str	r3, [r0, #12]
- 80048ca:	4b64      	ldr	r3, [pc, #400]	; (8004a5c <modConfigLoadDefaultConfig+0x1a4>)
+ 80048ca:	4b65      	ldr	r3, [pc, #404]	; (8004a60 <modConfigLoadDefaultConfig+0x1a8>)
  80048cc:	6103      	str	r3, [r0, #16]
- 80048ce:	4b64      	ldr	r3, [pc, #400]	; (8004a60 <modConfigLoadDefaultConfig+0x1a8>)
+ 80048ce:	4b65      	ldr	r3, [pc, #404]	; (8004a64 <modConfigLoadDefaultConfig+0x1ac>)
  80048d0:	6143      	str	r3, [r0, #20]
- 80048d2:	4b64      	ldr	r3, [pc, #400]	; (8004a64 <modConfigLoadDefaultConfig+0x1ac>)
- 80048d4:	61c3      	str	r3, [r0, #28]
- 80048d6:	4b64      	ldr	r3, [pc, #400]	; (8004a68 <modConfigLoadDefaultConfig+0x1b0>)
- 80048d8:	6243      	str	r3, [r0, #36]	; 0x24
- 80048da:	4b64      	ldr	r3, [pc, #400]	; (8004a6c <modConfigLoadDefaultConfig+0x1b4>)
- 80048dc:	6283      	str	r3, [r0, #40]	; 0x28
- 80048de:	4b64      	ldr	r3, [pc, #400]	; (8004a70 <modConfigLoadDefaultConfig+0x1b8>)
- 80048e0:	6343      	str	r3, [r0, #52]	; 0x34
- 80048e2:	4b64      	ldr	r3, [pc, #400]	; (8004a74 <modConfigLoadDefaultConfig+0x1bc>)
- 80048e4:	6383      	str	r3, [r0, #56]	; 0x38
- 80048e6:	4b64      	ldr	r3, [pc, #400]	; (8004a78 <modConfigLoadDefaultConfig+0x1c0>)
- 80048e8:	63c3      	str	r3, [r0, #60]	; 0x3c
- 80048ea:	4b64      	ldr	r3, [pc, #400]	; (8004a7c <modConfigLoadDefaultConfig+0x1c4>)
- 80048ec:	6443      	str	r3, [r0, #68]	; 0x44
- 80048ee:	4b64      	ldr	r3, [pc, #400]	; (8004a80 <modConfigLoadDefaultConfig+0x1c8>)
- 80048f0:	f8df c1c8 	ldr.w	ip, [pc, #456]	; 8004abc <modConfigLoadDefaultConfig+0x204>
- 80048f4:	6483      	str	r3, [r0, #72]	; 0x48
- 80048f6:	4b63      	ldr	r3, [pc, #396]	; (8004a84 <modConfigLoadDefaultConfig+0x1cc>)
- 80048f8:	64c3      	str	r3, [r0, #76]	; 0x4c
- 80048fa:	f8c0 c064 	str.w	ip, [r0, #100]	; 0x64
- 80048fe:	f240 2301 	movw	r3, #513	; 0x201
- 8004902:	f247 5c30 	movw	ip, #30000	; 0x7530
- 8004906:	f8a0 3054 	strh.w	r3, [r0, #84]	; 0x54
- 800490a:	f8c0 c068 	str.w	ip, [r0, #104]	; 0x68
- 800490e:	f44f 637a 	mov.w	r3, #4000	; 0xfa0
- 8004912:	f8df c1ac 	ldr.w	ip, [pc, #428]	; 8004ac0 <modConfigLoadDefaultConfig+0x208>
- 8004916:	6583      	str	r3, [r0, #88]	; 0x58
- 8004918:	2101      	movs	r1, #1
- 800491a:	f242 7310 	movw	r3, #10000	; 0x2710
- 800491e:	2200      	movs	r2, #0
- 8004920:	b5f0      	push	{r4, r5, r6, r7, lr}
- 8004922:	f8c0 c070 	str.w	ip, [r0, #112]	; 0x70
- 8004926:	4c58      	ldr	r4, [pc, #352]	; (8004a88 <modConfigLoadDefaultConfig+0x1d0>)
- 8004928:	6184      	str	r4, [r0, #24]
- 800492a:	f04f 577c 	mov.w	r7, #1056964608	; 0x3f000000
- 800492e:	2600      	movs	r6, #0
- 8004930:	2505      	movs	r5, #5
- 8004932:	f241 7c70 	movw	ip, #6000	; 0x1770
+ 80048d2:	4b65      	ldr	r3, [pc, #404]	; (8004a68 <modConfigLoadDefaultConfig+0x1b0>)
+ 80048d4:	6243      	str	r3, [r0, #36]	; 0x24
+ 80048d6:	4b65      	ldr	r3, [pc, #404]	; (8004a6c <modConfigLoadDefaultConfig+0x1b4>)
+ 80048d8:	6283      	str	r3, [r0, #40]	; 0x28
+ 80048da:	4b65      	ldr	r3, [pc, #404]	; (8004a70 <modConfigLoadDefaultConfig+0x1b8>)
+ 80048dc:	6343      	str	r3, [r0, #52]	; 0x34
+ 80048de:	4b65      	ldr	r3, [pc, #404]	; (8004a74 <modConfigLoadDefaultConfig+0x1bc>)
+ 80048e0:	6383      	str	r3, [r0, #56]	; 0x38
+ 80048e2:	4b65      	ldr	r3, [pc, #404]	; (8004a78 <modConfigLoadDefaultConfig+0x1c0>)
+ 80048e4:	63c3      	str	r3, [r0, #60]	; 0x3c
+ 80048e6:	4b65      	ldr	r3, [pc, #404]	; (8004a7c <modConfigLoadDefaultConfig+0x1c4>)
+ 80048e8:	6443      	str	r3, [r0, #68]	; 0x44
+ 80048ea:	4b65      	ldr	r3, [pc, #404]	; (8004a80 <modConfigLoadDefaultConfig+0x1c8>)
+ 80048ec:	6483      	str	r3, [r0, #72]	; 0x48
+ 80048ee:	b5f0      	push	{r4, r5, r6, r7, lr}
+ 80048f0:	4b64      	ldr	r3, [pc, #400]	; (8004a84 <modConfigLoadDefaultConfig+0x1cc>)
+ 80048f2:	f8df e1c4 	ldr.w	lr, [pc, #452]	; 8004ab8 <modConfigLoadDefaultConfig+0x200>
+ 80048f6:	64c3      	str	r3, [r0, #76]	; 0x4c
+ 80048f8:	f8c0 e064 	str.w	lr, [r0, #100]	; 0x64
+ 80048fc:	f240 2301 	movw	r3, #513	; 0x201
+ 8004900:	f247 5e30 	movw	lr, #30000	; 0x7530
+ 8004904:	f8a0 3054 	strh.w	r3, [r0, #84]	; 0x54
+ 8004908:	f8c0 e068 	str.w	lr, [r0, #104]	; 0x68
+ 800490c:	f44f 637a 	mov.w	r3, #4000	; 0xfa0
+ 8004910:	f8df e1a8 	ldr.w	lr, [pc, #424]	; 8004abc <modConfigLoadDefaultConfig+0x204>
+ 8004914:	4c5c      	ldr	r4, [pc, #368]	; (8004a88 <modConfigLoadDefaultConfig+0x1d0>)
+ 8004916:	4f5d      	ldr	r7, [pc, #372]	; (8004a8c <modConfigLoadDefaultConfig+0x1d4>)
+ 8004918:	6583      	str	r3, [r0, #88]	; 0x58
+ 800491a:	2101      	movs	r1, #1
+ 800491c:	f242 7310 	movw	r3, #10000	; 0x2710
+ 8004920:	2200      	movs	r2, #0
+ 8004922:	f04f 5c7c 	mov.w	ip, #1056964608	; 0x3f000000
+ 8004926:	2600      	movs	r6, #0
+ 8004928:	2505      	movs	r5, #5
+ 800492a:	f8c0 e070 	str.w	lr, [r0, #112]	; 0x70
+ 800492e:	f241 7e70 	movw	lr, #6000	; 0x1770
+ 8004932:	6184      	str	r4, [r0, #24]
+ 8004934:	61c7      	str	r7, [r0, #28]
  8004936:	62c4      	str	r4, [r0, #44]	; 0x2c
- 8004938:	6307      	str	r7, [r0, #48]	; 0x30
- 800493a:	6506      	str	r6, [r0, #80]	; 0x50
- 800493c:	f880 505c 	strb.w	r5, [r0, #92]	; 0x5c
- 8004940:	6603      	str	r3, [r0, #96]	; 0x60
- 8004942:	66c4      	str	r4, [r0, #108]	; 0x6c
- 8004944:	70c1      	strb	r1, [r0, #3]
- 8004946:	f880 1020 	strb.w	r1, [r0, #32]
- 800494a:	f8a0 2040 	strh.w	r2, [r0, #64]	; 0x40
- 800494e:	f8c0 c074 	str.w	ip, [r0, #116]	; 0x74
- 8004952:	6784      	str	r4, [r0, #120]	; 0x78
- 8004954:	f44f 64fa 	mov.w	r4, #2000	; 0x7d0
- 8004958:	f8c0 4080 	str.w	r4, [r0, #128]	; 0x80
- 800495c:	f8c0 60ac 	str.w	r6, [r0, #172]	; 0xac
- 8004960:	4c4a      	ldr	r4, [pc, #296]	; (8004a8c <modConfigLoadDefaultConfig+0x1d4>)
- 8004962:	f8c0 4084 	str.w	r4, [r0, #132]	; 0x84
- 8004966:	f240 5601 	movw	r6, #1281	; 0x501
- 800496a:	f240 54dc 	movw	r4, #1500	; 0x5dc
- 800496e:	f8a0 60c0 	strh.w	r6, [r0, #192]	; 0xc0
- 8004972:	f880 50c2 	strb.w	r5, [r0, #194]	; 0xc2
- 8004976:	4e46      	ldr	r6, [pc, #280]	; (8004a90 <modConfigLoadDefaultConfig+0x1d8>)
- 8004978:	f8c0 4088 	str.w	r4, [r0, #136]	; 0x88
- 800497c:	f04f 557e 	mov.w	r5, #1065353216	; 0x3f800000
- 8004980:	4c44      	ldr	r4, [pc, #272]	; (8004a94 <modConfigLoadDefaultConfig+0x1dc>)
- 8004982:	f8c0 50c4 	str.w	r5, [r0, #196]	; 0xc4
- 8004986:	f64e 2560 	movw	r5, #60000	; 0xea60
- 800498a:	e9c0 6532 	strd	r6, r5, [r0, #200]	; 0xc8
- 800498e:	f8c0 408c 	str.w	r4, [r0, #140]	; 0x8c
- 8004992:	f240 1501 	movw	r5, #257	; 0x101
- 8004996:	4c40      	ldr	r4, [pc, #256]	; (8004a98 <modConfigLoadDefaultConfig+0x1e0>)
- 8004998:	f8c0 4090 	str.w	r4, [r0, #144]	; 0x90
- 800499c:	f8a0 50d0 	strh.w	r5, [r0, #208]	; 0xd0
- 80049a0:	4c3e      	ldr	r4, [pc, #248]	; (8004a9c <modConfigLoadDefaultConfig+0x1e4>)
- 80049a2:	f8c0 4094 	str.w	r4, [r0, #148]	; 0x94
- 80049a6:	2502      	movs	r5, #2
- 80049a8:	4c3d      	ldr	r4, [pc, #244]	; (8004aa0 <modConfigLoadDefaultConfig+0x1e8>)
- 80049aa:	f880 5100 	strb.w	r5, [r0, #256]	; 0x100
- 80049ae:	f64f 75ff 	movw	r5, #65535	; 0xffff
- 80049b2:	e9c0 5537 	strd	r5, r5, [r0, #220]	; 0xdc
- 80049b6:	f8c0 4098 	str.w	r4, [r0, #152]	; 0x98
- 80049ba:	4d3a      	ldr	r5, [pc, #232]	; (8004aa4 <modConfigLoadDefaultConfig+0x1ec>)
- 80049bc:	f8c0 40a4 	str.w	r4, [r0, #164]	; 0xa4
- 80049c0:	4c39      	ldr	r4, [pc, #228]	; (8004aa8 <modConfigLoadDefaultConfig+0x1f0>)
- 80049c2:	67c7      	str	r7, [r0, #124]	; 0x7c
+ 8004938:	f8c0 c030 	str.w	ip, [r0, #48]	; 0x30
+ 800493c:	6506      	str	r6, [r0, #80]	; 0x50
+ 800493e:	f880 505c 	strb.w	r5, [r0, #92]	; 0x5c
+ 8004942:	6603      	str	r3, [r0, #96]	; 0x60
+ 8004944:	66c4      	str	r4, [r0, #108]	; 0x6c
+ 8004946:	70c1      	strb	r1, [r0, #3]
+ 8004948:	f880 1020 	strb.w	r1, [r0, #32]
+ 800494c:	f8a0 2040 	strh.w	r2, [r0, #64]	; 0x40
+ 8004950:	f8c0 e074 	str.w	lr, [r0, #116]	; 0x74
+ 8004954:	6784      	str	r4, [r0, #120]	; 0x78
+ 8004956:	f44f 64fa 	mov.w	r4, #2000	; 0x7d0
+ 800495a:	f8c0 4080 	str.w	r4, [r0, #128]	; 0x80
+ 800495e:	f8c0 60ac 	str.w	r6, [r0, #172]	; 0xac
+ 8004962:	4c4b      	ldr	r4, [pc, #300]	; (8004a90 <modConfigLoadDefaultConfig+0x1d8>)
+ 8004964:	f8c0 4084 	str.w	r4, [r0, #132]	; 0x84
+ 8004968:	f240 5601 	movw	r6, #1281	; 0x501
+ 800496c:	f240 54dc 	movw	r4, #1500	; 0x5dc
+ 8004970:	f8a0 60c0 	strh.w	r6, [r0, #192]	; 0xc0
+ 8004974:	f880 50c2 	strb.w	r5, [r0, #194]	; 0xc2
+ 8004978:	4e46      	ldr	r6, [pc, #280]	; (8004a94 <modConfigLoadDefaultConfig+0x1dc>)
+ 800497a:	f8c0 4088 	str.w	r4, [r0, #136]	; 0x88
+ 800497e:	f04f 557e 	mov.w	r5, #1065353216	; 0x3f800000
+ 8004982:	4c45      	ldr	r4, [pc, #276]	; (8004a98 <modConfigLoadDefaultConfig+0x1e0>)
+ 8004984:	f8c0 50c4 	str.w	r5, [r0, #196]	; 0xc4
+ 8004988:	f64e 2560 	movw	r5, #60000	; 0xea60
+ 800498c:	e9c0 6532 	strd	r6, r5, [r0, #200]	; 0xc8
+ 8004990:	f8c0 408c 	str.w	r4, [r0, #140]	; 0x8c
+ 8004994:	f240 1501 	movw	r5, #257	; 0x101
+ 8004998:	4c40      	ldr	r4, [pc, #256]	; (8004a9c <modConfigLoadDefaultConfig+0x1e4>)
+ 800499a:	f8c0 4090 	str.w	r4, [r0, #144]	; 0x90
+ 800499e:	f8a0 50d0 	strh.w	r5, [r0, #208]	; 0xd0
+ 80049a2:	4c3f      	ldr	r4, [pc, #252]	; (8004aa0 <modConfigLoadDefaultConfig+0x1e8>)
+ 80049a4:	f8c0 4094 	str.w	r4, [r0, #148]	; 0x94
+ 80049a8:	2502      	movs	r5, #2
+ 80049aa:	4c3e      	ldr	r4, [pc, #248]	; (8004aa4 <modConfigLoadDefaultConfig+0x1ec>)
+ 80049ac:	f880 5100 	strb.w	r5, [r0, #256]	; 0x100
+ 80049b0:	f64f 75ff 	movw	r5, #65535	; 0xffff
+ 80049b4:	e9c0 5537 	strd	r5, r5, [r0, #220]	; 0xdc
+ 80049b8:	f8c0 4098 	str.w	r4, [r0, #152]	; 0x98
+ 80049bc:	4d3a      	ldr	r5, [pc, #232]	; (8004aa8 <modConfigLoadDefaultConfig+0x1f0>)
+ 80049be:	f8c0 40a4 	str.w	r4, [r0, #164]	; 0xa4
+ 80049c2:	4c3a      	ldr	r4, [pc, #232]	; (8004aac <modConfigLoadDefaultConfig+0x1f4>)
  80049c4:	f8c0 40a8 	str.w	r4, [r0, #168]	; 0xa8
- 80049c8:	4f38      	ldr	r7, [pc, #224]	; (8004aac <modConfigLoadDefaultConfig+0x1f4>)
- 80049ca:	f8c0 709c 	str.w	r7, [r0, #156]	; 0x9c
- 80049ce:	f241 3488 	movw	r4, #5000	; 0x1388
- 80049d2:	e9c0 442c 	strd	r4, r4, [r0, #176]	; 0xb0
- 80049d6:	4f36      	ldr	r7, [pc, #216]	; (8004ab0 <modConfigLoadDefaultConfig+0x1f8>)
+ 80049c8:	f241 3488 	movw	r4, #5000	; 0x1388
+ 80049cc:	e9c0 442c 	strd	r4, r4, [r0, #176]	; 0xb0
+ 80049d0:	f8c0 c07c 	str.w	ip, [r0, #124]	; 0x7c
+ 80049d4:	f640 34b8 	movw	r4, #3000	; 0xbb8
  80049d8:	f8c0 50e4 	str.w	r5, [r0, #228]	; 0xe4
- 80049dc:	f640 34b8 	movw	r4, #3000	; 0xbb8
- 80049e0:	35fc      	adds	r5, #252	; 0xfc
- 80049e2:	f8c0 70a0 	str.w	r7, [r0, #160]	; 0xa0
+ 80049dc:	f8df c0e0 	ldr.w	ip, [pc, #224]	; 8004ac0 <modConfigLoadDefaultConfig+0x208>
+ 80049e0:	f8c0 70a0 	str.w	r7, [r0, #160]	; 0xa0
+ 80049e4:	35fc      	adds	r5, #252	; 0xfc
  80049e6:	f8c0 30b8 	str.w	r3, [r0, #184]	; 0xb8
- 80049ea:	f8c0 40bc 	str.w	r4, [r0, #188]	; 0xbc
- 80049ee:	f880 10d2 	strb.w	r1, [r0, #210]	; 0xd2
- 80049f2:	f880 10d3 	strb.w	r1, [r0, #211]	; 0xd3
- 80049f6:	f880 10d4 	strb.w	r1, [r0, #212]	; 0xd4
- 80049fa:	f8c0 20d8 	str.w	r2, [r0, #216]	; 0xd8
- 80049fe:	f8c0 50e8 	str.w	r5, [r0, #232]	; 0xe8
- 8004a02:	e9c0 3343 	strd	r3, r3, [r0, #268]	; 0x10c
- 8004a06:	e9c0 3348 	strd	r3, r3, [r0, #288]	; 0x120
- 8004a0a:	f8c0 3114 	str.w	r3, [r0, #276]	; 0x114
- 8004a0e:	f8c0 3128 	str.w	r3, [r0, #296]	; 0x128
- 8004a12:	230b      	movs	r3, #11
- 8004a14:	7083      	strb	r3, [r0, #2]
- 8004a16:	f44f 7380 	mov.w	r3, #256	; 0x100
- 8004a1a:	4f26      	ldr	r7, [pc, #152]	; (8004ab4 <modConfigLoadDefaultConfig+0x1fc>)
- 8004a1c:	f8a0 30ee 	strh.w	r3, [r0, #238]	; 0xee
- 8004a20:	f640 330a 	movw	r3, #2826	; 0xb0a
- 8004a24:	f8a0 30f0 	strh.w	r3, [r0, #240]	; 0xf0
- 8004a28:	f640 736e 	movw	r3, #3950	; 0xf6e
- 8004a2c:	e9c0 734c 	strd	r7, r3, [r0, #304]	; 0x130
- 8004a30:	4b21      	ldr	r3, [pc, #132]	; (8004ab8 <modConfigLoadDefaultConfig+0x200>)
- 8004a32:	f880 10f8 	strb.w	r1, [r0, #248]	; 0xf8
- 8004a36:	f880 2101 	strb.w	r2, [r0, #257]	; 0x101
- 8004a3a:	f8c0 40fc 	str.w	r4, [r0, #252]	; 0xfc
- 8004a3e:	f880 20ed 	strb.w	r2, [r0, #237]	; 0xed
- 8004a42:	f8c0 20f4 	str.w	r2, [r0, #244]	; 0xf4
- 8004a46:	f8c0 3138 	str.w	r3, [r0, #312]	; 0x138
- 8004a4a:	f880 213c 	strb.w	r2, [r0, #316]	; 0x13c
- 8004a4e:	bdf0      	pop	{r4, r5, r6, r7, pc}
- 8004a50:	40900000 	.word	0x40900000
- 8004a54:	40200000 	.word	0x40200000
- 8004a58:	4083d70a 	.word	0x4083d70a
- 8004a5c:	40266666 	.word	0x40266666
- 8004a60:	40833333 	.word	0x40833333
- 8004a64:	40400000 	.word	0x40400000
+ 80049ea:	f8c0 c09c 	str.w	ip, [r0, #156]	; 0x9c
+ 80049ee:	f8c0 40bc 	str.w	r4, [r0, #188]	; 0xbc
+ 80049f2:	f880 10d2 	strb.w	r1, [r0, #210]	; 0xd2
+ 80049f6:	f880 10d3 	strb.w	r1, [r0, #211]	; 0xd3
+ 80049fa:	f880 10d4 	strb.w	r1, [r0, #212]	; 0xd4
+ 80049fe:	f8c0 20d8 	str.w	r2, [r0, #216]	; 0xd8
+ 8004a02:	f8c0 50e8 	str.w	r5, [r0, #232]	; 0xe8
+ 8004a06:	e9c0 3343 	strd	r3, r3, [r0, #268]	; 0x10c
+ 8004a0a:	e9c0 3348 	strd	r3, r3, [r0, #288]	; 0x120
+ 8004a0e:	f8c0 3114 	str.w	r3, [r0, #276]	; 0x114
+ 8004a12:	f8c0 3128 	str.w	r3, [r0, #296]	; 0x128
+ 8004a16:	230b      	movs	r3, #11
+ 8004a18:	7083      	strb	r3, [r0, #2]
+ 8004a1a:	f44f 7380 	mov.w	r3, #256	; 0x100
+ 8004a1e:	4f24      	ldr	r7, [pc, #144]	; (8004ab0 <modConfigLoadDefaultConfig+0x1f8>)
+ 8004a20:	f8a0 30ee 	strh.w	r3, [r0, #238]	; 0xee
+ 8004a24:	f640 330a 	movw	r3, #2826	; 0xb0a
+ 8004a28:	f8a0 30f0 	strh.w	r3, [r0, #240]	; 0xf0
+ 8004a2c:	f640 736e 	movw	r3, #3950	; 0xf6e
+ 8004a30:	e9c0 734c 	strd	r7, r3, [r0, #304]	; 0x130
+ 8004a34:	4b1f      	ldr	r3, [pc, #124]	; (8004ab4 <modConfigLoadDefaultConfig+0x1fc>)
+ 8004a36:	f880 10f8 	strb.w	r1, [r0, #248]	; 0xf8
+ 8004a3a:	f880 2101 	strb.w	r2, [r0, #257]	; 0x101
+ 8004a3e:	f8c0 40fc 	str.w	r4, [r0, #252]	; 0xfc
+ 8004a42:	f880 20ed 	strb.w	r2, [r0, #237]	; 0xed
+ 8004a46:	f8c0 20f4 	str.w	r2, [r0, #244]	; 0xf4
+ 8004a4a:	f8c0 3138 	str.w	r3, [r0, #312]	; 0x138
+ 8004a4e:	f880 213c 	strb.w	r2, [r0, #316]	; 0x13c
+ 8004a52:	bdf0      	pop	{r4, r5, r6, r7, pc}
+ 8004a54:	40900000 	.word	0x40900000
+ 8004a58:	40200000 	.word	0x40200000
+ 8004a5c:	4083d70a 	.word	0x4083d70a
+ 8004a60:	40266666 	.word	0x40266666
+ 8004a64:	40833333 	.word	0x40833333
  8004a68:	3cf5c28f 	.word	0x3cf5c28f
  8004a6c:	3e4ccccd 	.word	0x3e4ccccd
  8004a70:	00010102 	.word	0x00010102
@@ -4625,20 +4623,20 @@ Disassembly of section .text:
  8004a80:	41100000 	.word	0x41100000
  8004a84:	4244cccd 	.word	0x4244cccd
  8004a88:	3c23d70a 	.word	0x3c23d70a
- 8004a8c:	3f333333 	.word	0x3f333333
- 8004a90:	00124f80 	.word	0x00124f80
- 8004a94:	447a0000 	.word	0x447a0000
- 8004a98:	425c0000 	.word	0x425c0000
- 8004a9c:	c47a0000 	.word	0xc47a0000
- 8004aa0:	42480000 	.word	0x42480000
- 8004aa4:	01000005 	.word	0x01000005
- 8004aa8:	42a00000 	.word	0x42a00000
- 8004aac:	c2c80000 	.word	0xc2c80000
- 8004ab0:	40a00000 	.word	0x40a00000
- 8004ab4:	0f6e0f6e 	.word	0x0f6e0f6e
- 8004ab8:	000a018b 	.word	0x000a018b
- 8004abc:	3ca3d70a 	.word	0x3ca3d70a
- 8004ac0:	001b7740 	.word	0x001b7740
+ 8004a8c:	40a00000 	.word	0x40a00000
+ 8004a90:	3f333333 	.word	0x3f333333
+ 8004a94:	00124f80 	.word	0x00124f80
+ 8004a98:	447a0000 	.word	0x447a0000
+ 8004a9c:	425c0000 	.word	0x425c0000
+ 8004aa0:	c47a0000 	.word	0xc47a0000
+ 8004aa4:	42480000 	.word	0x42480000
+ 8004aa8:	01000005 	.word	0x01000005
+ 8004aac:	42a00000 	.word	0x42a00000
+ 8004ab0:	0f6e0f6e 	.word	0x0f6e0f6e
+ 8004ab4:	000a018b 	.word	0x000a018b
+ 8004ab8:	3ca3d70a 	.word	0x3ca3d70a
+ 8004abc:	001b7740 	.word	0x001b7740
+ 8004ac0:	c2c80000 	.word	0xc2c80000
 
 08004ac4 <modConfigStoreDefaultConfig>:
  8004ac4:	b500      	push	{lr}
