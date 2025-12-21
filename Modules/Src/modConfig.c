@@ -306,9 +306,9 @@ void modConfigLoadDefaultConfig(modConfigGeneralConfigStructTypedef *configLocat
 	configLocation->noOfCellsParallel                              	= 4;                      		// Number of cells in parallel
 	configLocation->noOfParallelModules                       	= 1;                     		// Number of parallel modules
 	configLocation->batteryCapacity					= 4.50f;				// XXAh battery
-	configLocation->cellHardUnderVoltage				= 2.5f;				// Worst case X.XXV as lowest cell voltage
+	configLocation->cellHardUnderVoltage				= 1.5f;				// Worst case X.XXV as lowest cell voltage
 	configLocation->cellHardOverVoltage				= 4.12f;				// Worst case X.XXV as highest cell voltage
-	configLocation->cellLCSoftUnderVoltage				= 2.6f;				// Lowest cell voltage X.XXV.
+	configLocation->cellLCSoftUnderVoltage				= 1.5f;				// Lowest cell voltage X.XXV.
 	configLocation->cellSoftOverVoltage				= 4.10f;				// Normal highest cell voltage X.XXV.
 	configLocation->cellBalanceDifferenceThreshold                 	= 0.01f;				// Start balancing @ XmV difference, stop if below.
 	configLocation->cellBalanceStart				= 5.0f;					// Start balancing above X.XXV.

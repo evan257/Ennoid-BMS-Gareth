@@ -7,15 +7,15 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, ALLOC, LOAD, DATA
   1 .fill         00001000  08000800  08000800  00010800  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  2 .text         00011d38  08001800  08001800  00011800  2**4
+  2 .text         00011d90  08001800  08001800  00011800  2**4
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  3 .rodata       00004448  08013538  08013538  00023538  2**3
+  3 .rodata       00004448  08013590  08013590  00023590  2**3
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  4 .init_array   00000004  08017980  08017980  00027980  2**2
+  4 .init_array   00000004  080179d8  080179d8  000279d8  2**2
                   CONTENTS, ALLOC, LOAD, DATA
-  5 .fini_array   00000004  08017984  08017984  00027984  2**2
+  5 .fini_array   00000004  080179dc  080179dc  000279dc  2**2
                   CONTENTS, ALLOC, LOAD, DATA
-  6 .data         00000200  20000000  08017988  00030000  2**2
+  6 .data         00000200  20000000  080179e0  00030000  2**2
                   CONTENTS, ALLOC, LOAD, DATA
   7 .ccmram       00000000  10000000  10000000  00030200  2**0
                   CONTENTS
@@ -25,25 +25,25 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   ALLOC
  10 .ARM.attributes 00000030  00000000  00000000  00030200  2**0
                   CONTENTS, READONLY
- 11 .debug_info   00035fb4  00000000  00000000  00030230  2**0
+ 11 .debug_info   00035fd9  00000000  00000000  00030230  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 12 .debug_abbrev 00007a22  00000000  00000000  000661e4  2**0
+ 12 .debug_abbrev 00007a22  00000000  00000000  00066209  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 13 .debug_aranges 00001a10  00000000  00000000  0006dc06  2**0
+ 13 .debug_aranges 00001a10  00000000  00000000  0006dc2b  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 14 .debug_ranges 00002e20  00000000  00000000  0006f616  2**0
+ 14 .debug_ranges 00002e20  00000000  00000000  0006f63b  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 15 .debug_line   0002280b  00000000  00000000  00072436  2**0
+ 15 .debug_line   0002288b  00000000  00000000  0007245b  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 16 .debug_str    0000cf01  00000000  00000000  00094c41  2**0
+ 16 .debug_str    0000cf30  00000000  00000000  00094ce6  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .comment      00000049  00000000  00000000  000a1b42  2**0
+ 17 .comment      00000049  00000000  00000000  000a1c16  2**0
                   CONTENTS, READONLY
- 18 .debug_frame  00006530  00000000  00000000  000a1b8c  2**2
+ 18 .debug_frame  00006538  00000000  00000000  000a1c60  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .debug_loc    00018cf9  00000000  00000000  000a80bc  2**0
+ 19 .debug_loc    00018cf9  00000000  00000000  000a8198  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 20 .stab         000000cc  00000000  00000000  000c0db8  2**2
+ 20 .stab         000000cc  00000000  00000000  000c0e94  2**2
                   CONTENTS, READONLY, DEBUGGING
- 21 .stabstr      000001b9  00000000  00000000  000c0e84  2**0
+ 21 .stabstr      000001b9  00000000  00000000  000c0f60  2**0
                   CONTENTS, READONLY, DEBUGGING
