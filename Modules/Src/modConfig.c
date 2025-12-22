@@ -311,7 +311,7 @@ void modConfigLoadDefaultConfig(modConfigGeneralConfigStructTypedef *configLocat
 	configLocation->cellLCSoftUnderVoltage				= 1.5f;				// Lowest cell voltage X.XXV.
 	configLocation->cellSoftOverVoltage				= 4.10f;				// Normal highest cell voltage X.XXV.
 	configLocation->cellBalanceDifferenceThreshold                 	= 0.01f;				// Start balancing @ XmV difference, stop if below.
-	configLocation->cellBalanceStart				= 5.0f;					// Start balancing above X.XXV.
+	configLocation->cellBalanceStart				= 3.0f;					// Start balancing above X.XXV.
 	configLocation->cellBalanceAllTime				= true;				// Enable balancing under all opstate
 	configLocation->cellThrottleUpperStart				= 0.03f;				// Upper range of cell voltage for charge throttling.
 	configLocation->cellThrottleLowerStart				= 0.20f;				// Lower range of cell voltage for discharge throttling.
