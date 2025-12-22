@@ -186,7 +186,9 @@ void modCANTask(void){
 	modCANRXWatchDog();
 	
 	// Control the charger
-	modCANHandleSubTaskCharger();
+	if(modCANPackStateHandle->faultState == false && modCANPackStateHandle->highVoltageFault == false) {
+		modCANHandleSubTaskCharger();
+	}
 }
 
 uint32_t modCANGetDestinationID(CanRxMsgTypeDef canMsg) {

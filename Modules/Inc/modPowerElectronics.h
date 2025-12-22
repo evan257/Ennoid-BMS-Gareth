@@ -105,7 +105,8 @@ typedef struct {
 	float    tempBMSAverage;
 	float 	 humidity;
 	uint8_t  preChargeDesired;
-	bool   stateError; //Comp Fix
+	bool   stateError;
+	bool   highVoltageFault; //Comp Fix
 	uint8_t  disChargeDesired;
 	uint8_t  disChargeLCAllowed;
 	uint8_t  chargeDesired;
