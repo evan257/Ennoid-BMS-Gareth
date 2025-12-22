@@ -302,8 +302,8 @@ void modConfigLoadDefaultConfig(modConfigGeneralConfigStructTypedef *configLocat
 	configLocation->BMSApplication					= electricVehicle;
 
 #elif ENNOID_HV
-	configLocation->noOfCellsSeries					= 110;					// Total number of cells in series in the battery pack
-	configLocation->noOfCellsParallel                              	= 4;                      		// Number of cells in parallel
+	configLocation->noOfCellsSeries					= 144;					// Total number of cells in series in the battery pack
+	configLocation->noOfCellsParallel                              	= 3;                      		// Number of cells in parallel
 	configLocation->noOfParallelModules                       	= 1;                     		// Number of parallel modules
 	configLocation->batteryCapacity					= 4.50f;				// XXAh battery
 	configLocation->cellHardUnderVoltage				= 1.5f;				// Worst case X.XXV as lowest cell voltage
