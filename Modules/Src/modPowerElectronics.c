@@ -149,7 +149,7 @@ void modPowerElectronicsInit(modPowerElectronicsPackStateTypedef *packState, mod
 	// init cell active table
 	for(uint8_t cellPointer = 1; cellPointer <= modPowerElectronicsGeneralConfigHandle->noOfCellsSeries; cellPointer++){
 		if(cellPointer == 6 || cellPointer == 17 || cellPointer == 22 || cellPointer == 28 || cellPointer == 39 || cellPointer == 44 || cellPointer == 50 || cellPointer == 61 || cellPointer == 66 || cellPointer == 72 || cellPointer == 83 || cellPointer == 88 || cellPointer == 94 || cellPointer == 105 || cellPointer == 110){
-			modPowerElectronicsPackStateHandle->cellVoltagesIndividual[cellPointer-1].isActive = false;
+			modPowerElectronicsPackStateHandle->cellVoltagesIndividual[cellPointer-1].isActive = true; // if you want to skip over cells change this back to false and enter the cells you want to skip over above
 		} else {
 			modPowerElectronicsPackStateHandle->cellVoltagesIndividual[cellPointer-1].isActive = true;
 		}
@@ -1027,7 +1027,7 @@ void modPowerElectronicsCellMonitorsArrayTranslate(void) {
 				}
 			}
 		}else{ // use noOfCellsPerModule as usually
-			for(uint8_t modulePointerCell = 0; modulePointerCell < modPowerElectronicsGeneralConfigHandle->noOfCellsPerModule; modulePointerCell++) { //use this function
+			for(uint8_t modulePointerCell = 0; modulePointerCell < modPowerElectronicsGeneralConfigHandle->noOfCellsPerModule; modulePointerCell++) { //use this function - if you need to boost some cell values because of bad ADC readings put the multiplier in this function
 				if(individualCellPointer == 0 || individualCellPointer == 10 || individualCellPointer == 11 || individualCellPointer == 20 || individualCellPointer == 22 || individualCellPointer == 32 || individualCellPointer == 33 || individualCellPointer == 42 || individualCellPointer == 44 || individualCellPointer == 54 || individualCellPointer == 55 || individualCellPointer == 64 || individualCellPointer == 66 || individualCellPointer == 76 ){
 					modPowerElectronicsPackStateHandle->cellVoltagesIndividual[individualCellPointer].cellVoltage = modPowerElectronicsPackStateHandle->cellModuleVoltages[modulePointer][modulePointerCell] * 1.034f;
 					modPowerElectronicsPackStateHandle->cellVoltagesIndividual[individualCellPointer].cellNumber = individualCellPointer++;
