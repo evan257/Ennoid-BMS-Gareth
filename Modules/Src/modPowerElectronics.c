@@ -49,6 +49,7 @@ configCellMonitorICTypeEnum modPowerElectronicsCellMonitorsTypeActive;
 float    modPowerElectronicsChargeDiodeBypassHysteresis;
 bool     modPowerElectronicsVoltageSenseError;
 bool 	balanceAllowed = 0;
+bool    balanceAllowedECU = 0;
 
 bool     modPowerElectronicsChargeDeratingActive;
 uint32_t modPowerElectronicsChargeIncreaseLastTick;
@@ -406,9 +407,21 @@ void modPowerElectronicsSubTaskBalancing(void) { //Comp fix
 	HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
 	if (HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_8) == GPIO_PIN_SET) {
-		balanceAllowed = false;
-	} else {
 		balanceAllowed = true;
+	} else {
+		balanceAllowed = false;
+	}
+
+	__HAL_RCC_GPIOC_CLK_ENABLE();
+	GPIO_InitStruct.Pin = GPIO_PIN_14;
+	GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+	GPIO_InitStruct.Pull = GPIO_PULLUP;
+	HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
+
+	if (HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_14) == GPIO_PIN_SET) {
+		balanceAllowedECU = true;
+	} else {
+		balanceAllowedECU = false;
 	}
 	
 	
@@ -417,7 +430,7 @@ void modPowerElectronicsSubTaskBalancing(void) { //Comp fix
 		delayTimeHolder = delaytoggle ? modPowerElectronicsGeneralConfigHandle->cellBalanceUpdateInterval : 200;
 		
 		if(delaytoggle) {
-			if(balanceAllowed == false) {	//comp fix
+			if(balanceAllowed == true && balanceAllowedECU == true) {	//comp fix
 				for(uint8_t i = 0; i < modPowerElectronicsGeneralConfigHandle->noOfCellsSeries*modPowerElectronicsGeneralConfigHandle->noOfParallelModules; i++) {
 					if(modPowerElectronicsPackStateHandle->cellVoltagesIndividual[i].cellVoltage >= (modPowerElectronicsPackStateHandle->cellVoltageLow + modPowerElectronicsGeneralConfigHandle->cellBalanceDifferenceThreshold) && modPowerElectronicsPackStateHandle->cellVoltagesIndividual[i].isActive) {
 						if(modPowerElectronicsPackStateHandle->cellVoltagesIndividual[i].cellVoltage >= modPowerElectronicsGeneralConfigHandle->cellBalanceStart) {
