@@ -38,6 +38,7 @@ static uint8_t         modCANRxFrameWrite;
 uint32_t               modCANLastChargerHeartBeatTick;
 uint32_t               modCANChargerTaskIntervalLastTick;
 bool                   modCANChargerPresentOnBus;
+bool				   highVoltageFault = false;
 uint8_t                modCANChargerCANOpenState;
 uint8_t                modCANChargerChargingState;
 
@@ -185,9 +186,23 @@ void modCANTask(void){
 	modCANSubTaskHandleCommunication();
 	modCANRXWatchDog();
 	
+	__HAL_RCC_GPIOC_CLK_ENABLE();
+	GPIO_InitTypeDef GPIO_InitStruct = {0};
+	GPIO_InitStruct.Pin = GPIO_PIN_14;
+	GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+	GPIO_InitStruct.Pull = GPIO_PULLUP;
+	HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
+
+	if (HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_14) == GPIO_PIN_SET) {
+		highVoltageFault = true;
+	} else {
+		highVoltageFault = false;
+	}
+
+
 	// Control the charger
-	if(modCANPackStateHandle->faultState == false && modCANPackStateHandle->highVoltageFault == false) {
-		modCANHandleSubTaskCharger();
+	if(modCANPackStateHandle->faultState == false && highVoltageFault == false) {
+	modCANHandleSubTaskCharger();
 	}
 }
 

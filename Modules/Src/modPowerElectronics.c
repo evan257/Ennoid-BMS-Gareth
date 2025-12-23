@@ -49,6 +49,7 @@ configCellMonitorICTypeEnum modPowerElectronicsCellMonitorsTypeActive;
 float    modPowerElectronicsChargeDiodeBypassHysteresis;
 bool     modPowerElectronicsVoltageSenseError;
 bool 	balanceAllowed = 0;
+bool    balanceAllowedECU = 0;
 
 bool     modPowerElectronicsChargeDeratingActive;
 uint32_t modPowerElectronicsChargeIncreaseLastTick;
@@ -127,7 +128,6 @@ void modPowerElectronicsInit(modPowerElectronicsPackStateTypedef *packState, mod
 	modPowerElectronicsPackStateHandle->buzzerOn					= false;
 	modPowerElectronicsPackStateHandle->powerDownDesired				= false;
 	modPowerElectronicsPackStateHandle->powerOnLongButtonPress			= false;
-	modPowerElectronicsPackStateHandle->highVoltageFault				= false;
 	
 	// init the cell module variables empty
 	for( uint8_t modulePointer = 0; modulePointer < NoOfCellMonitorsPossibleOnBMS; modulePointer++) {
@@ -419,9 +419,9 @@ void modPowerElectronicsSubTaskBalancing(void) { //Comp fix
 	HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
 	if (HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_14) == GPIO_PIN_SET) {
-		modPowerElectronicsPackStateHandle->highVoltageFault = false;
+		balanceAllowedECU = true;
 	} else {
-		modPowerElectronicsPackStateHandle->highVoltageFault = true;
+		balanceAllowedECU = false;
 	}
 	
 	
@@ -430,7 +430,7 @@ void modPowerElectronicsSubTaskBalancing(void) { //Comp fix
 		delayTimeHolder = delaytoggle ? modPowerElectronicsGeneralConfigHandle->cellBalanceUpdateInterval : 200;
 		
 		if(delaytoggle) {
-			if(balanceAllowed == true & modPowerElectronicsPackStateHandle->highVoltageFault == false) {	//comp fix
+			if(balanceAllowed == true && balanceAllowedECU == true) {	//comp fix
 				for(uint8_t i = 0; i < modPowerElectronicsGeneralConfigHandle->noOfCellsSeries*modPowerElectronicsGeneralConfigHandle->noOfParallelModules; i++) {
 					if(modPowerElectronicsPackStateHandle->cellVoltagesIndividual[i].cellVoltage >= (modPowerElectronicsPackStateHandle->cellVoltageLow + modPowerElectronicsGeneralConfigHandle->cellBalanceDifferenceThreshold) && modPowerElectronicsPackStateHandle->cellVoltagesIndividual[i].isActive) {
 						if(modPowerElectronicsPackStateHandle->cellVoltagesIndividual[i].cellVoltage >= modPowerElectronicsGeneralConfigHandle->cellBalanceStart) {
