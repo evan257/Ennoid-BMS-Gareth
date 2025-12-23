@@ -302,8 +302,8 @@ void modConfigLoadDefaultConfig(modConfigGeneralConfigStructTypedef *configLocat
 	configLocation->BMSApplication					= electricVehicle;
 
 #elif ENNOID_HV
-	configLocation->noOfCellsSeries					= 110;					// Total number of cells in series in the battery pack
-	configLocation->noOfCellsParallel                              	= 4;                      		// Number of cells in parallel
+	configLocation->noOfCellsSeries					= 144;					// Total number of cells in series in the battery pack
+	configLocation->noOfCellsParallel                              	= 3;                      		// Number of cells in parallel
 	configLocation->noOfParallelModules                       	= 1;                     		// Number of parallel modules
 	configLocation->batteryCapacity					= 4.50f;				// XXAh battery
 	configLocation->cellHardUnderVoltage				= 1.5f;				// Worst case X.XXV as lowest cell voltage
@@ -311,7 +311,7 @@ void modConfigLoadDefaultConfig(modConfigGeneralConfigStructTypedef *configLocat
 	configLocation->cellLCSoftUnderVoltage				= 1.5f;				// Lowest cell voltage X.XXV.
 	configLocation->cellSoftOverVoltage				= 4.10f;				// Normal highest cell voltage X.XXV.
 	configLocation->cellBalanceDifferenceThreshold                 	= 0.01f;				// Start balancing @ XmV difference, stop if below.
-	configLocation->cellBalanceStart				= 5.0f;					// Start balancing above X.XXV.
+	configLocation->cellBalanceStart				= 3.0f;					// Start balancing above X.XXV.
 	configLocation->cellBalanceAllTime				= true;				// Enable balancing under all opstate
 	configLocation->cellThrottleUpperStart				= 0.03f;				// Upper range of cell voltage for charge throttling.
 	configLocation->cellThrottleLowerStart				= 0.20f;				// Lower range of cell voltage for discharge throttling.

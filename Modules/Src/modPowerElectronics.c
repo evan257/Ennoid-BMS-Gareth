@@ -49,6 +49,7 @@ configCellMonitorICTypeEnum modPowerElectronicsCellMonitorsTypeActive;
 float    modPowerElectronicsChargeDiodeBypassHysteresis;
 bool     modPowerElectronicsVoltageSenseError;
 bool 	balanceAllowed = 0;
+bool    balanceAllowedECU = 0;
 
 bool     modPowerElectronicsChargeDeratingActive;
 uint32_t modPowerElectronicsChargeIncreaseLastTick;
@@ -149,7 +150,7 @@ void modPowerElectronicsInit(modPowerElectronicsPackStateTypedef *packState, mod
 	// init cell active table
 	for(uint8_t cellPointer = 1; cellPointer <= modPowerElectronicsGeneralConfigHandle->noOfCellsSeries; cellPointer++){
 		if(cellPointer == 6 || cellPointer == 17 || cellPointer == 22 || cellPointer == 28 || cellPointer == 39 || cellPointer == 44 || cellPointer == 50 || cellPointer == 61 || cellPointer == 66 || cellPointer == 72 || cellPointer == 83 || cellPointer == 88 || cellPointer == 94 || cellPointer == 105 || cellPointer == 110){
-			modPowerElectronicsPackStateHandle->cellVoltagesIndividual[cellPointer-1].isActive = false;
+			modPowerElectronicsPackStateHandle->cellVoltagesIndividual[cellPointer-1].isActive = true; // if you want to skip over cells change this back to false and enter the cells you want to skip over above
 		} else {
 			modPowerElectronicsPackStateHandle->cellVoltagesIndividual[cellPointer-1].isActive = true;
 		}
@@ -398,17 +399,29 @@ void modPowerElectronicsSubTaskBalancing(void) { //Comp fix
 	static uint32_t delayTimeHolder = 100;
 	static bool     delaytoggle = false;
 
-	__HAL_RCC_GPIOC_CLK_ENABLE();
+	__HAL_RCC_GPIOA_CLK_ENABLE();
 	GPIO_InitTypeDef GPIO_InitStruct = {0};
+	GPIO_InitStruct.Pin = GPIO_PIN_8;
+	GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+	GPIO_InitStruct.Pull = GPIO_PULLUP;
+	HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
+	if (HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_8) == GPIO_PIN_SET) {
+		balanceAllowed = true;
+	} else {
+		balanceAllowed = false;
+	}
+
+	__HAL_RCC_GPIOC_CLK_ENABLE();
 	GPIO_InitStruct.Pin = GPIO_PIN_14;
 	GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
 	GPIO_InitStruct.Pull = GPIO_PULLUP;
 	HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
 	if (HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_14) == GPIO_PIN_SET) {
-		balanceAllowed = false;
+		balanceAllowedECU = true;
 	} else {
-		balanceAllowed = true;
+		balanceAllowedECU = false;
 	}
 	
 	
@@ -417,7 +430,7 @@ void modPowerElectronicsSubTaskBalancing(void) { //Comp fix
 		delayTimeHolder = delaytoggle ? modPowerElectronicsGeneralConfigHandle->cellBalanceUpdateInterval : 200;
 		
 		if(delaytoggle) {
-			if((modPowerElectronicsPackStateHandle->chargeDesired && !modPowerElectronicsPackStateHandle->disChargeDesired) || modPowerStateChargerDetected() || (modPowerElectronicsGeneralConfigHandle->cellBalanceAllTime && balanceAllowed == true)) {	//comp fix
+			if(balanceAllowed == true && balanceAllowedECU == true) {	//comp fix
 				for(uint8_t i = 0; i < modPowerElectronicsGeneralConfigHandle->noOfCellsSeries*modPowerElectronicsGeneralConfigHandle->noOfParallelModules; i++) {
 					if(modPowerElectronicsPackStateHandle->cellVoltagesIndividual[i].cellVoltage >= (modPowerElectronicsPackStateHandle->cellVoltageLow + modPowerElectronicsGeneralConfigHandle->cellBalanceDifferenceThreshold) && modPowerElectronicsPackStateHandle->cellVoltagesIndividual[i].isActive) {
 						if(modPowerElectronicsPackStateHandle->cellVoltagesIndividual[i].cellVoltage >= modPowerElectronicsGeneralConfigHandle->cellBalanceStart) {
@@ -1027,7 +1040,7 @@ void modPowerElectronicsCellMonitorsArrayTranslate(void) {
 				}
 			}
 		}else{ // use noOfCellsPerModule as usually
-			for(uint8_t modulePointerCell = 0; modulePointerCell < modPowerElectronicsGeneralConfigHandle->noOfCellsPerModule; modulePointerCell++) { //use this function
+			for(uint8_t modulePointerCell = 0; modulePointerCell < modPowerElectronicsGeneralConfigHandle->noOfCellsPerModule; modulePointerCell++) { //use this function - if you need to boost some cell values because of bad ADC readings put the multiplier in this function
 				if(individualCellPointer == 0 || individualCellPointer == 10 || individualCellPointer == 11 || individualCellPointer == 20 || individualCellPointer == 22 || individualCellPointer == 32 || individualCellPointer == 33 || individualCellPointer == 42 || individualCellPointer == 44 || individualCellPointer == 54 || individualCellPointer == 55 || individualCellPointer == 64 || individualCellPointer == 66 || individualCellPointer == 76 ){
 					modPowerElectronicsPackStateHandle->cellVoltagesIndividual[individualCellPointer].cellVoltage = modPowerElectronicsPackStateHandle->cellModuleVoltages[modulePointer][modulePointerCell] * 1.034f;
 					modPowerElectronicsPackStateHandle->cellVoltagesIndividual[individualCellPointer].cellNumber = individualCellPointer++;
