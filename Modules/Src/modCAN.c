@@ -185,6 +185,17 @@ void modCANTask(void){
 	// Handle received CAN bus data
 	modCANSubTaskHandleCommunication();
 	modCANRXWatchDog();
+
+	/*C5 Fix 2 - Charging CAN Message
+	  
+	  Per the rules if the safety circuit is
+	  tripped the charger must shut off and 
+	  the only way to do that is to stop sending
+	  the CAN message so this code reads the same
+	  safety signal coming from the HV PCB that stops
+	  balancing and decides to stop sending the CAN message
+	
+    */
 	
 	__HAL_RCC_GPIOC_CLK_ENABLE();
 	GPIO_InitTypeDef GPIO_InitStruct = {0};

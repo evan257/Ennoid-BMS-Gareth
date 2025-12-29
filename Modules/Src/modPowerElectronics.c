@@ -150,7 +150,7 @@ void modPowerElectronicsInit(modPowerElectronicsPackStateTypedef *packState, mod
 	// init cell active table
 	for(uint8_t cellPointer = 1; cellPointer <= modPowerElectronicsGeneralConfigHandle->noOfCellsSeries; cellPointer++){
 		if(cellPointer == 6 || cellPointer == 17 || cellPointer == 22 || cellPointer == 28 || cellPointer == 39 || cellPointer == 44 || cellPointer == 50 || cellPointer == 61 || cellPointer == 66 || cellPointer == 72 || cellPointer == 83 || cellPointer == 88 || cellPointer == 94 || cellPointer == 105 || cellPointer == 110){
-			modPowerElectronicsPackStateHandle->cellVoltagesIndividual[cellPointer-1].isActive = true; // if you want to skip over cells change this back to false and enter the cells you want to skip over above
+			modPowerElectronicsPackStateHandle->cellVoltagesIndividual[cellPointer-1].isActive = true; // if you want to skip over cells change this back to false and enter the cells you want to skip over above - C5 Fix 3
 		} else {
 			modPowerElectronicsPackStateHandle->cellVoltagesIndividual[cellPointer-1].isActive = true;
 		}
@@ -395,7 +395,17 @@ void modPowerElectronicsCalculateCellStats(void) {
 	modPowerElectronicsPackStateHandle->cellVoltageMisMatch = modPowerElectronicsPackStateHandle->cellVoltageHigh - modPowerElectronicsPackStateHandle->cellVoltageLow;
 };
 
-void modPowerElectronicsSubTaskBalancing(void) { //Comp fix
+void modPowerElectronicsSubTaskBalancing(void) {
+
+	/*C5 Fix 1 - Balancing Switch & Balancing Shut Off
+
+	  I added two GPIO reads in this code. One is reading
+	  the balancing switch with a pullup and the other is
+	  reading the balance active signal coming from the ECU
+	  
+	  The switch is included for convenience and the HV PCB signal
+	  is for rules compliance
+	*/
 	static uint32_t delayTimeHolder = 100;
 	static bool     delaytoggle = false;
 
@@ -430,7 +440,7 @@ void modPowerElectronicsSubTaskBalancing(void) { //Comp fix
 		delayTimeHolder = delaytoggle ? modPowerElectronicsGeneralConfigHandle->cellBalanceUpdateInterval : 200;
 		
 		if(delaytoggle) {
-			if(balanceAllowed == true && balanceAllowedECU == true) {	//comp fix
+			if(balanceAllowed == true && balanceAllowedECU == true) {	
 				for(uint8_t i = 0; i < modPowerElectronicsGeneralConfigHandle->noOfCellsSeries*modPowerElectronicsGeneralConfigHandle->noOfParallelModules; i++) {
 					if(modPowerElectronicsPackStateHandle->cellVoltagesIndividual[i].cellVoltage >= (modPowerElectronicsPackStateHandle->cellVoltageLow + modPowerElectronicsGeneralConfigHandle->cellBalanceDifferenceThreshold) && modPowerElectronicsPackStateHandle->cellVoltagesIndividual[i].isActive) {
 						if(modPowerElectronicsPackStateHandle->cellVoltagesIndividual[i].cellVoltage >= modPowerElectronicsGeneralConfigHandle->cellBalanceStart) {
