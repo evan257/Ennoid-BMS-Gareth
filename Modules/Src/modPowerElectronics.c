@@ -61,6 +61,8 @@ uint16_t  calculatedChargeThrottle = 0;
 float currentOffset = 0.0f;
 //float currentOffsetTemp = 0.0f;
 uint8_t currentOffsetCounter = 0;
+uint32_t x = 0;
+bool pending = false;
 
 //uint32_t hardUnderVoltageFlags, hardOverVoltageFlags;
 
@@ -563,15 +565,19 @@ void modPowerElectronicsSubTaskVoltageWatch(void) {
 	}
 	
 	// Handle hard cell voltage limits
-	if(modPowerElectronicsVoltageSenseError || modPowerElectronicsPackStateHandle->cellVoltageHigh > modPowerElectronicsGeneralConfigHandle-> cellHardOverVoltage || modPowerElectronicsPackStateHandle->cellVoltageLow < modPowerElectronicsGeneralConfigHandle-> cellHardUnderVoltage || (modPowerElectronicsPackStateHandle->packVoltage > modPowerElectronicsGeneralConfigHandle->noOfCellsSeries*modPowerElectronicsGeneralConfigHandle->cellHardOverVoltage)) {
-		if(modPowerElectronicsUnderAndOverVoltageErrorCount++ > modPowerElectronicsGeneralConfigHandle->maxUnderAndOverVoltageErrorCount){
-			modPowerElectronicsPackStateHandle->packOperationalCellState = PACK_STATE_ERROR_HARD_CELLVOLTAGE;
-			modPowerElectronicsPackStateHandle->faultState = FAULT_CODE_MAX_UVP_OVP_ERRORS;
+	if(modPowerElectronicsPackStateHandle->cellVoltageHigh > modPowerElectronicsGeneralConfigHandle-> cellHardOverVoltage || modPowerElectronicsPackStateHandle->cellVoltageLow < modPowerElectronicsGeneralConfigHandle-> cellHardUnderVoltage || (modPowerElectronicsPackStateHandle->packVoltage > modPowerElectronicsGeneralConfigHandle->noOfCellsSeries*modPowerElectronicsGeneralConfigHandle->cellHardOverVoltage)) {
+		if (!pending){
+			pending = true;
+			x = HAL_GetTick();
+		}else{
+			if(HAL_GetTick() - x >= 3000){
+				modPowerElectronicsPackStateHandle->disChargeLCAllowed = false;
+				modPowerElectronicsPackStateHandle->chargeAllowed = false;
+			}
 		}
-		modPowerElectronicsPackStateHandle->disChargeLCAllowed = false;
-		modPowerElectronicsPackStateHandle->chargeAllowed = false;
-	}else
-		modPowerElectronicsUnderAndOverVoltageErrorCount = 0;
+	}else {
+		pending = false;
+	}
 	
 		// Handle temperature limits
 	if(modPowerElectronicsPackStateHandle->tempBatteryHigh > (modPowerElectronicsGeneralConfigHandle->allowedTempBattDischargingMax + 10.0f) || modPowerElectronicsPackStateHandle->tempBatteryLow < (modPowerElectronicsGeneralConfigHandle->allowedTempBattDischargingMin - 10.0f)) {
