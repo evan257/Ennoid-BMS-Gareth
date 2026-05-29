@@ -996,7 +996,7 @@ void modPowerElectronicsCellMonitorsInit(void){
 			configStruct.GPIO2                    = true;																														// 
 			configStruct.GPIO3                    = true;																														// 
 			configStruct.GPIO4                    = true;																														// 
-			configStruct.GPIO5                    = true;																														//
+			configStruct.GPIO5                    = true;	//change																													//
 			configStruct.GPIO6                    = true;																														//
 			configStruct.GPIO7                    = true;																														//
 			configStruct.GPIO8                    = true;																														//
@@ -1048,7 +1048,7 @@ void modPowerElectronicsCellMonitorsArrayTranslate(void) {
 		if((modulePointer+1) % (modPowerElectronicsGeneralConfigHandle->cellMonitorICCount/modPowerElectronicsGeneralConfigHandle->noOfParallelModules)==0 && modulePointer != 0){ // DO NOT USE THIS FUNCTION
 			for(uint8_t modulePointerCell = 0; modulePointerCell < modPowerElectronicsGeneralConfigHandle->lastICNoOfCells; modulePointerCell++) {
 				if(individualCellPointer == 0 || individualCellPointer == 10 || individualCellPointer == 11 || individualCellPointer == 20 || individualCellPointer == 22 || individualCellPointer == 32 || individualCellPointer == 33 || individualCellPointer == 42 || individualCellPointer == 44 || individualCellPointer == 54 || individualCellPointer == 55 || individualCellPointer == 64 || individualCellPointer == 66 || individualCellPointer == 76 || individualCellPointer == 77 || individualCellPointer == 86 || individualCellPointer == 88 || individualCellPointer == 98 || individualCellPointer == 99 || individualCellPointer == 108){
-					modPowerElectronicsPackStateHandle->cellVoltagesIndividual[individualCellPointer].cellVoltage = modPowerElectronicsPackStateHandle->cellModuleVoltages[modulePointer][modulePointerCell] * 1.034f;
+					modPowerElectronicsPackStateHandle->cellVoltagesIndividual[individualCellPointer].cellVoltage = modPowerElectronicsPackStateHandle->cellModuleVoltages[modulePointer][modulePointerCell];
 					modPowerElectronicsPackStateHandle->cellVoltagesIndividual[individualCellPointer].cellNumber = individualCellPointer++;
 				}else{
 					modPowerElectronicsPackStateHandle->cellVoltagesIndividual[individualCellPointer].cellVoltage = modPowerElectronicsPackStateHandle->cellModuleVoltages[modulePointer][modulePointerCell];
@@ -1058,10 +1058,10 @@ void modPowerElectronicsCellMonitorsArrayTranslate(void) {
 		}else{ // use noOfCellsPerModule as usually
 			for(uint8_t modulePointerCell = 0; modulePointerCell < modPowerElectronicsGeneralConfigHandle->noOfCellsPerModule; modulePointerCell++) { //use this function - if you need to boost some cell values because of bad ADC readings put the multiplier in this function
 				if(individualCellPointer == 0 || individualCellPointer == 10 || individualCellPointer == 11 || individualCellPointer == 20 || individualCellPointer == 22 || individualCellPointer == 32 || individualCellPointer == 33 || individualCellPointer == 42 || individualCellPointer == 44 || individualCellPointer == 54 || individualCellPointer == 55 || individualCellPointer == 64 || individualCellPointer == 66 || individualCellPointer == 76 ){
-					modPowerElectronicsPackStateHandle->cellVoltagesIndividual[individualCellPointer].cellVoltage = modPowerElectronicsPackStateHandle->cellModuleVoltages[modulePointer][modulePointerCell] * 1.034f;
+					modPowerElectronicsPackStateHandle->cellVoltagesIndividual[individualCellPointer].cellVoltage = modPowerElectronicsPackStateHandle->cellModuleVoltages[modulePointer][modulePointerCell];
 					modPowerElectronicsPackStateHandle->cellVoltagesIndividual[individualCellPointer].cellNumber = individualCellPointer++;
 				}else if(individualCellPointer == 77 || individualCellPointer == 86 || individualCellPointer == 88 || individualCellPointer == 98 || individualCellPointer == 99 || individualCellPointer == 108){
-					modPowerElectronicsPackStateHandle->cellVoltagesIndividual[individualCellPointer].cellVoltage = modPowerElectronicsPackStateHandle->cellModuleVoltages[modulePointer][modulePointerCell] * 1.034f;
+					modPowerElectronicsPackStateHandle->cellVoltagesIndividual[individualCellPointer].cellVoltage = modPowerElectronicsPackStateHandle->cellModuleVoltages[modulePointer][modulePointerCell];
 					modPowerElectronicsPackStateHandle->cellVoltagesIndividual[individualCellPointer].cellNumber = individualCellPointer++;	
 				}
 				else{

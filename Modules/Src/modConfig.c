@@ -391,19 +391,19 @@ void modConfigLoadDefaultConfig(modConfigGeneralConfigStructTypedef *configLocat
 	configLocation->NTCBetaFactor[modConfigNTCGroupMasterPCB]      	= 3950;                   		// NTC Beta factor
 	configLocation->NTCBetaFactor[modConfigNTCGroupExp]		= 3950;                  		// NTC Beta factor
 	configLocation->cellMonitorType                                	= CELL_MON_LTC6811_1;     		// Use the new cell voltage monitor
-	configLocation->cellMonitorICCount                             	= 10;                     		// Only one slave IC
+	configLocation->cellMonitorICCount                             	= 12;                     		// Only one slave IC
 	configLocation->externalEnableOperationalState                 	= opStateExtNormal;       		// Go to normal enable mode
 	configLocation->chargeEnableOperationalState                   	= opStateChargingModeCharging;		// Go to charging mode when a charger is connected
 	configLocation->powerDownDelay                                 	= 3000;                   		// Wait only minimal to turn off
 	
-	configLocation->noOfCellsPerModule                             	= 11;                      		// Number of cell levels monitored per LTC68XX	
-	configLocation->lastICNoOfCells					= 11;
+	configLocation->noOfCellsPerModule                             	= 12;                      		// Number of cell levels monitored per LTC68XX	
+	configLocation->lastICNoOfCells					= 12;
 	configLocation->lastICMask					= 0;
 	configLocation->humidityICType 					= 0;
 	configLocation->BMSApplication					= electricVehicle;
 
 	configLocation->MaxChargingCurrent				= 10.0f;				// Max charging current in A
-	configLocation->MaxChargingVoltage				=395.0f;				// Max charging voltage in V
+	configLocation->MaxChargingVoltage				=550.0f;				// Max charging voltage in V
 	configLocation->ChargingDisallowed					= false;				// Disallow charging
 
 #elif ENNOID_SS
